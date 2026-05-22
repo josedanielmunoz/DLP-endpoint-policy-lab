@@ -37,7 +37,7 @@ The lab includes:
 
 The repository includes the project report:
 
-**DLP-Security-Policy-Project.pdf**
+**DLP_Endpoint_Policy_Lab.pdf**
 
 The report covers DLP concepts, data classification, role-based access control, monitoring, prevention of data leaks, user awareness and the technical validation of removable storage restrictions.
 
@@ -53,7 +53,7 @@ The report covers DLP concepts, data classification, role-based access control, 
 
 ## Repository structure
 
-- DLP-Security-Policy-Project.pdf — Full DLP policy and technical implementation report
+- DLP_Endpoint_Policy_Lab.pdf — Full DLP policy and technical implementation report
 - README.md — Project overview and repository documentation
 
 ## Status
