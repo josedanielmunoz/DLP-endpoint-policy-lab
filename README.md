@@ -1,44 +1,65 @@
-# DLP-Security-Policy-Project
+# DLP Endpoint Policy Lab
 
-# Implementación de Políticas de Seguridad DLP a dispositivos de almacenamiento externo
+Practical cybersecurity lab focused on Data Loss Prevention (DLP) policies for removable storage control in a simulated Windows endpoint environment.
 
-## Descripción del Proyecto
-Este proyecto consiste en el diseño y ejecución de una estrategia de **Prevención de Pérdida de Datos (DLP)** en un entorno corporativo simulado (Windows 10 Pro sobre VirtualBox). El objetivo principal es restringir el uso de medios extraíbles para mitigar riesgos de exfiltración de información y entrada de malware, aplicando el **Principio del Menor Privilegio**.
+> Note: The full project report is currently available in Spanish.
 
----
+## Overview
 
-## Parte 1: Estrategia de Políticas DLP
+This project documents the design and implementation of a DLP strategy to restrict the use of removable storage devices and reduce the risk of data exfiltration, malware introduction and uncontrolled handling of sensitive information.
 
-### 1. Introducción
-El DLP es una estrategia integral que combina procesos y tecnología para proteger la información sensible en sus tres estados: en uso, en tránsito y en reposo. Su implementación es crítica para el cumplimiento normativo (GDPR, PCI-DSS) y la protección de la propiedad intelectual.
+The lab was developed in a Windows 10 Pro virtual environment using VirtualBox, Group Policy configuration and Microsoft Management Console (MMC). The objective was to apply the Principle of Least Privilege by blocking USB access for standard users while maintaining controlled exceptions for authorised administrator profiles.
 
-### 2. Clasificación de Datos
-Se han establecido tres niveles de sensibilidad:
-* **Públicos:** Información de libre divulgación (ej. Marketing).
-* **Internos:** Documentación operativa de uso exclusivo del personal.
-* **Sensibles:** Información crítica (PII, estados financieros) que requiere bloqueo total de hardware y cifrado.
+## Key areas covered
 
-### 3. Acceso y Control
-Se aplica el **Principio del Menor Privilegio (PoLP)**. Por defecto, el acceso a USB está denegado para roles operativos, permitiendo excepciones únicamente a roles técnicos (Administradores) bajo un flujo de revisión documentado.
+- Data Loss Prevention strategy
+- Data classification and access control
+- Principle of Least Privilege
+- Removable storage restrictions
+- Windows Group Policy configuration
+- MMC-based granular policy exceptions
+- Endpoint security validation
+- Security awareness and monitoring considerations
 
-### 4. Monitoreo, Auditoría y Prevención
-* **Monitoreo:** Uso de Microsoft Sysmon y Auditoría nativa de Windows (Event IDs 4656/4663).
-* **Prevención:** Implementación de cifrado BitLocker y herramientas de inspección de contenido.
-* **Concientización:** Programa de capacitación continua y simulacros de "USB Drop".
+## Technical implementation
 
----
+The lab includes:
 
-## Parte 2: Implementación Técnica con Evidencias 
+- Configuration of a Windows 10 Pro virtual machine in VirtualBox
+- USB controller and device filtering setup
+- Global removable storage restriction using Local Group Policy
+- Read and write access denial for removable disks
+- Validation with a non-privileged user account
+- Granular exception configuration through MMC
+- Final verification showing administrator access allowed and standard user access blocked
 
-### 1. Configuración del Entorno
-* **Hipervisor:** VirtualBox con Extension Pack habilitado.
-* **Hardware:** Filtrado de puerto USB 3.0 (xHCI) hacia la VM de Windows 10.
+## Report
 
-### 2. Aplicación de Directivas de Grupo (GPO)
-Se configuró el bloqueo global mediante `gpedit.msc` en la ruta:
-`Configuración del equipo > Plantillas administrativas > Sistema > Acceso de almacenamiento extraíble`
-* **Denegar acceso a Lectura:** Habilitada.
-* **Denegar acceso a Escritura:** Habilitada.
+The repository includes the project report:
 
-### 3. Gestión de Excepciones
-Para permitir acceso solo a administradores, se utilizó la **Consola de Administración de Microsoft (MMC)**, cargando el complemento de directiva enfocado exclusivamente en el grupo **"No administradores"**.
+**DLP-Security-Policy-Project.pdf**
+
+The report covers DLP concepts, data classification, role-based access control, monitoring, prevention of data leaks, user awareness and the technical validation of removable storage restrictions.
+
+## Tools and technologies
+
+- Windows 10 Pro
+- VirtualBox
+- Local Group Policy Editor
+- Microsoft Management Console
+- USB device filtering
+- Endpoint access control
+- Data Loss Prevention concepts
+
+## Repository structure
+
+- DLP-Security-Policy-Project.pdf — Full DLP policy and technical implementation report
+- README.md — Project overview and repository documentation
+
+## Status
+
+Completed practical lab project.
+
+## Disclaimer
+
+This project was developed in a controlled educational environment. It is intended to demonstrate endpoint security policy implementation, least-privilege access control and DLP-related technical documentation.
